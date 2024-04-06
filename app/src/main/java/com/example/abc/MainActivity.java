@@ -2,15 +2,18 @@ package com.example.abc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity
 {
     EditText etA,etB,etC;
+    String a, b, c;
     Random rnd = new Random();
 
     @Override
@@ -37,7 +40,23 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void clickedAns(View view) {
-
-
+        a = etA.getText().toString();
+        b = etB.getText().toString();
+        c = etC.getText().toString();
+        if(a.isEmpty()||b.isEmpty()||c.isEmpty()||a.equals("-")||b.equals("-")||c.equals("-")||a.equals(".")||b.equals(".")||c.equals(".")||a.equals("-.")||b.equals("-.")||c.equals("-."))
+            Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
+        else if(Double.parseDouble(a) == 0)
+            Toast.makeText(this, "you cannot enter 0", Toast.LENGTH_SHORT).show();
+        else
+        {
+            Double.parseDouble(a);
+            Double.parseDouble(b);
+            Double.parseDouble(c);
+            Intent ioeohad = new Intent(this, activityAnswer.class);
+            ioeohad.putExtra("a", a);
+            ioeohad.putExtra("b", b);
+            ioeohad.putExtra("c", c);
+            startActivity(ioeohad);
+        }
     }
 }
