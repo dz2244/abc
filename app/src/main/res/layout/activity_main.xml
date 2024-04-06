@@ -15,6 +15,7 @@
         android:ems="10"
         android:hint="enter a"
         android:inputType="numberDecimal|numberSigned"
+        android:onClick="clickedEtA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -29,6 +30,7 @@
         android:ems="10"
         android:hint="enter c"
         android:inputType="numberDecimal|numberSigned"
+        android:onClick="clickedEtC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -43,6 +45,7 @@
         android:ems="10"
         android:hint="enter b"
         android:inputType="numberDecimal|numberSigned"
+        android:onClick="clickedEtB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -51,9 +54,22 @@
         app:layout_constraintVertical_bias="0.109" />
 
     <Button
+        android:id="@+id/randomBtn"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:onClick="clickedRnd"
+        android:text="random"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24" />
+
+    <Button
         android:id="@+id/answerBtn"
         android:layout_width="150dp"
         android:layout_height="80dp"
+        android:onClick="clickedAns"
         android:text="answer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,16 +77,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
-
-    <Button
-        android:id="@+id/randomBtn"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:text="random"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
