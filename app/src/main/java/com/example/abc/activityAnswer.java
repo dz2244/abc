@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class activityAnswer extends AppCompatActivity {
-    double answer,a,b,c,x1,x2;
+    double dis,a,b,c,x1,x2;
     TextView tvx1,tvx2;
     Button returnBtn;
     ImageView imAns;
@@ -22,17 +22,35 @@ public class activityAnswer extends AppCompatActivity {
         returnBtn = findViewById(R.id.returnBtn);
         imAns = findViewById(R.id.ivAns);
 
+        tvx1.setVisibility(View.INVISIBLE);
+        tvx2.setVisibility(View.INVISIBLE);
+
         Intent get = getIntent();
         a = get.getDoubleExtra("a", 1);
         b = get.getDoubleExtra("b", 1);
         c = get.getDoubleExtra("c", 1);
-        if(b*b -4*a*c < 0)
-            tvx1.setText("no answer");
-            tvx2.setText("no answer");
+        dis = Math.sqrt(b*b -4*a*c);
+        if (dis < 0)
+        {
+            Toast.makeText(this, "no answer", Toast.LENGTH_LONG).show();
+        }
+        else if(dis== 0)
+        {
+            tvx1.setVisibility(View.VISIBLE);
+            x1 = (-b-Math.sqrt(dis) )/2*a;
+            tvx1.setText(x1+"");
+        }
+        else if (dis > 0)
+        {
+            tvx1.setVisibility(View.VISIBLE);
+            tvx2.setVisibility(View.VISIBLE);
 
-        else
+            x1 = (-b+Math.sqrt(dis) )/2*a;
+            x2 =  (-b-Math.sqrt(dis) )/2*a;
 
-
+            tvx1.setText(x1+"");
+            tvx2.setText(x2+"");
+        }
     }
 
     public void clickedReturnBtn(View view) {
