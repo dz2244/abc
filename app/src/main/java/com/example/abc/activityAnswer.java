@@ -48,13 +48,36 @@ public class activityAnswer extends AppCompatActivity {
             x1 = (-b + Math.sqrt(dis)) / (2 * a);
             x2 = (-b - Math.sqrt(dis)) / (2 * a);
 
-            tvx1.setText(x1+"");
-            tvx2.setText(x2+"");
+            tvx1.setText("x1: "+x1);
+            tvx2.setText("x2: "+x2);
+            if(a>0 && c>0)
+            {
+                imAns.setImageResource(R.drawable.a2);
+            }
+            else if (a<0 && c>0)
+            {
+                imAns.setImageResource(R.drawable.a5);
+            }
+            else if (a>0 && c<0)
+            {
+                imAns.setImageResource(R.drawable.a3);
+            }
+            else if (a>0 && c==0)
+            {
+                imAns.setImageResource(R.drawable.a);
+            }
+            else if (a<0 && c<0)
+            {
+                imAns.setImageResource(R.drawable.a4);
+            }
         }
     }
 
     public void clickedReturnBtn(View view) {
-
+        Intent ioeohad2 = new Intent(this, MainActivity.class);
+        ioeohad2.putExtra("x1", x1);
+        ioeohad2.putExtra("x2",x2);
+        startActivity(ioeohad2);
         finish();
     }
 }
