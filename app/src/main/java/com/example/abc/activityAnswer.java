@@ -29,7 +29,7 @@ public class activityAnswer extends AppCompatActivity {
         a = get.getDoubleExtra("a", 1);
         b = get.getDoubleExtra("b", 1);
         c = get.getDoubleExtra("c", 1);
-        dis = Math.sqrt(b*b -4*a*c);
+        dis = b*b -4*a*c;
         if (dis < 0)
         {
             Toast.makeText(this, "no answer", Toast.LENGTH_LONG).show();
@@ -37,7 +37,7 @@ public class activityAnswer extends AppCompatActivity {
         else if(dis== 0)
         {
             tvx1.setVisibility(View.VISIBLE);
-            x1 = (-b-Math.sqrt(dis) )/2*a;
+            x1 = (-b + Math.sqrt(dis)) / (2 * a);
             tvx1.setText(x1+"");
         }
         else if (dis > 0)
@@ -45,8 +45,8 @@ public class activityAnswer extends AppCompatActivity {
             tvx1.setVisibility(View.VISIBLE);
             tvx2.setVisibility(View.VISIBLE);
 
-            x1 = (-b+Math.sqrt(dis) )/2*a;
-            x2 =  (-b-Math.sqrt(dis) )/2*a;
+            x1 = (-b + Math.sqrt(dis)) / (2 * a);
+            x2 = (-b - Math.sqrt(dis)) / (2 * a);
 
             tvx1.setText(x1+"");
             tvx2.setText(x2+"");
@@ -54,5 +54,7 @@ public class activityAnswer extends AppCompatActivity {
     }
 
     public void clickedReturnBtn(View view) {
+
+        finish();
     }
 }

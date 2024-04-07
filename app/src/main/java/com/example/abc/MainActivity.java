@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity
     public void clickedEtC(View view) {
     }
     public void clickedRnd(View view) {
-        etA.setText("" + (rnd.nextInt(1000 + 1000)-1000));
-        etB.setText("" + (rnd.nextInt(1000 + 1000)-1000));
-        etC.setText("" + (rnd.nextInt(1000 + 1000)-1000));
+        etA.setText("" + (rnd.nextInt(100 + 100)-100));
+        etB.setText("" + (rnd.nextInt(100 + 100)-100));
+        etC.setText("" + (rnd.nextInt(100 + 100)-100));
 
     }
 
@@ -49,13 +49,11 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, "you cannot enter 0", Toast.LENGTH_SHORT).show();
         else
         {
-            Double.parseDouble(a);
-            Double.parseDouble(b);
-            Double.parseDouble(c);
+
             Intent ioeohad = new Intent(this, activityAnswer.class);
-            ioeohad.putExtra("a", a);
-            ioeohad.putExtra("b", b);
-            ioeohad.putExtra("c", c);
+            ioeohad.putExtra("a",Double.parseDouble(a));
+            ioeohad.putExtra("b",  Double.parseDouble(b));
+            ioeohad.putExtra("c", Double.parseDouble(c));
             startActivity(ioeohad);
         }
     }
