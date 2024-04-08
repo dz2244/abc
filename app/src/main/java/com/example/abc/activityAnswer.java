@@ -75,6 +75,10 @@ public class activityAnswer extends AppCompatActivity {
             {
                 imAns.setImageResource(R.drawable.a4);
             }
+            else if (a<0 && c==0)
+            {
+                imAns.setImageResource(R.drawable.a6);
+            }
         }
     }
 

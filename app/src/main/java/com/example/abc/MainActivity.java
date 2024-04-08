@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         b = etB.getText().toString();
         c = etC.getText().toString();
 
-        if (a.isEmpty() || b.isEmpty() || c.isEmpty() || a.equals("-") || b.equals("-") || c.equals("-") || a.equals(".") || b.equals(".") || c.equals(".") || a.equals("-.") || b.equals("-.") || c.equals("-.") || equals("+") || b.equals("+") || c.equals("+") )
+        if (a.isEmpty() || b.isEmpty() || c.isEmpty() || a.equals("-") || b.equals("-") || c.equals("-") || a.equals(".") || b.equals(".") || c.equals(".") || a.equals("-.") || b.equals("-.") || c.equals("-.") || a.equals("+") || b.equals("+") || c.equals("+") || a.equals("+.") || b.equals("+.") || c.equals("+.") )
             Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
 
         else if (Double.parseDouble(a) == 0)
