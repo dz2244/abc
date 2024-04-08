@@ -78,9 +78,10 @@ public class activityAnswer extends AppCompatActivity {
         }
     }
 
-    public void clickedReturnBtn(View view) {
+    public void clickedReturnBtn(View view)
+    {
         ioeohad2.putExtra("x1", x1);
-        ioeohad2.putExtra("x2",x2);
+        ioeohad2.putExtra("x2", x2);
         setResult(Activity.RESULT_OK,ioeohad2);
         finish();
     }
