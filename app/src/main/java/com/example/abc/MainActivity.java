@@ -1,5 +1,6 @@
 package com.example.abc;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity
 {
     EditText etA,etB,etC;
+    final int REQUEST_CODE = 369;
     boolean  boEt1 = false,boEt2 = false,boEt3 = false;
     TextView tvX1,tvX2;
     String a, b, c,strX1,strX2;
@@ -72,8 +74,18 @@ public class MainActivity extends AppCompatActivity
                 ioeohad.putExtra("a", Double.parseDouble(a));
                 ioeohad.putExtra("b", Double.parseDouble(b));
                 ioeohad.putExtra("c", Double.parseDouble(c));
-                startActivity(ioeohad);
+                super.startActivityForResult(ioeohad, REQUEST_CODE);
             }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int source, int result, Intent data_back){
+        super.onActivityResult(source, result, data_back);
+        if(data_back != null)
+        {
+            tvX1.setText("x1: " + data_back.getDoubleExtra("x1",1));
+            tvX2.setText("x2: " + data_back.getDoubleExtra("x2",1));
         }
     }
 }

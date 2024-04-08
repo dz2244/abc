@@ -1,5 +1,7 @@
 package com.example.abc;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,10 +15,12 @@ public class activityAnswer extends AppCompatActivity {
     TextView tvx1,tvx2;
     Button returnBtn;
     ImageView imAns;
+    Intent ioeohad2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
+
         tvx1 = findViewById(R.id.tvx1);
         tvx2 = findViewById(R.id.tvx2);
         returnBtn = findViewById(R.id.returnBtn);
@@ -25,14 +29,15 @@ public class activityAnswer extends AppCompatActivity {
         tvx1.setVisibility(View.INVISIBLE);
         tvx2.setVisibility(View.INVISIBLE);
 
-        Intent get = getIntent();
-        a = get.getDoubleExtra("a", 1);
-        b = get.getDoubleExtra("b", 1);
-        c = get.getDoubleExtra("c", 1);
+        ioeohad2 = getIntent();
+        a = ioeohad2.getDoubleExtra("a", 1);
+        b = ioeohad2.getDoubleExtra("b", 1);
+        c = ioeohad2.getDoubleExtra("c", 1);
         dis = b*b -4*a*c;
         if (dis < 0)
         {
             Toast.makeText(this, "no answer", Toast.LENGTH_LONG).show();
+            imAns.setImageResource(R.drawable.error);
         }
         else if(dis== 0)
         {
@@ -74,10 +79,9 @@ public class activityAnswer extends AppCompatActivity {
     }
 
     public void clickedReturnBtn(View view) {
-        Intent ioeohad2 = new Intent(this, MainActivity.class);
         ioeohad2.putExtra("x1", x1);
         ioeohad2.putExtra("x2",x2);
-        startActivity(ioeohad2);
+        setResult(Activity.RESULT_OK,ioeohad2);
         finish();
     }
 }
