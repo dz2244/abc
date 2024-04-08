@@ -16,9 +16,8 @@ public class MainActivity extends AppCompatActivity
 {
     EditText etA,etB,etC;
     final int REQUEST_CODE = 369;
-    boolean  boEt1 = false,boEt2 = false,boEt3 = false;
     TextView tvX1,tvX2;
-    String a, b, c,strX1,strX2;
+    String a, b, c;
     Random rnd = new Random();
 
     @Override
@@ -36,47 +35,42 @@ public class MainActivity extends AppCompatActivity
 
     public void clickedEtA(View view)
     {
-        boEt1 = true;
+
     }
     public void clickedEtB(View view)
     {
-        boEt2 = true;
+
     }
     public void clickedEtC(View view)
     {
-        boEt3 = true;
+
     }
     public void clickedRnd(View view)
     {
         etA.setText("" + (rnd.nextInt(100 + 100)-100));
         etB.setText("" + (rnd.nextInt(100 + 100)-100));
         etC.setText("" + (rnd.nextInt(100 + 100)-100));
-        boEt1 = false;
-        boEt2 = false;
-        boEt3 = false;
     }
 
     public void clickedAns(View view)
     {
-        if(boEt1 && boEt2 && boEt3)
+        a = etA.getText().toString();
+        b = etB.getText().toString();
+        c = etC.getText().toString();
+        if (a.isEmpty() || b.isEmpty() || c.isEmpty() || a.equals("-") || b.equals("-") || c.equals("-") || a.equals(".") || b.equals(".") || c.equals(".") || a.equals("-.") || b.equals("-.") || c.equals("-.")|equals("+ || b.equals("") || c.equals("-") )
+            Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
+        else if (Double.parseDouble(a) == 0)
+            Toast.makeText(this, "you cannot enter 0", Toast.LENGTH_SHORT).show();
+        else
         {
-            a = etA.getText().toString();
-            b = etB.getText().toString();
-            c = etC.getText().toString();
-            if (a.isEmpty() || b.isEmpty() || c.isEmpty() || a.equals("-") || b.equals("-") || c.equals("-") || a.equals(".") || b.equals(".") || c.equals(".") || a.equals("-.") || b.equals("-.") || c.equals("-."))
-                Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
-            else if (Double.parseDouble(a) == 0)
-                Toast.makeText(this, "you cannot enter 0", Toast.LENGTH_SHORT).show();
-            else
-            {
 
-                Intent ioeohad = new Intent(this, activityAnswer.class);
-                ioeohad.putExtra("a", Double.parseDouble(a));
-                ioeohad.putExtra("b", Double.parseDouble(b));
-                ioeohad.putExtra("c", Double.parseDouble(c));
-                super.startActivityForResult(ioeohad, REQUEST_CODE);
-            }
+            Intent ioeohad = new Intent(this, activityAnswer.class);
+            ioeohad.putExtra("a", Double.parseDouble(a));
+            ioeohad.putExtra("b", Double.parseDouble(b));
+            ioeohad.putExtra("c", Double.parseDouble(c));
+            super.startActivityForResult(ioeohad, REQUEST_CODE);
         }
+
     }
 
     @Override
